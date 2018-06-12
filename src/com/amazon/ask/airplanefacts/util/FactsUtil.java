@@ -20,11 +20,11 @@ public class FactsUtil {
     public static Map getImageMap() {
         //FIXME Replace the map values below with the appropriate urls for the image
         Map<String, String> map = new HashMap<>();
-        map.put("Airbus-A380", "https://s3.amazonaws.com/<bucket-name>/airbus.jpg");
-        map.put("Boeing-747", "https://s3.amazonaws.com/<bucket-name>/airplane-1.jpg");
-        map.put("Boeing-767", "https://s3.amazonaws.com/<bucket-name>/airplane-2.jpg");
-        map.put("Airbus-A320", "https://s3.amazonaws.com/<bucket-name>/airplane-3.jpg");
-        map.put("Concorde", "https://s3.amazonaws.com/<bucket-name>/airplane-4.jpg");
+        map.put("Airbus-A380", "https://s3.amazonaws.com/ask-samples-resources/images/airbus.jpg");
+        map.put("Boeing-747", "https://s3.amazonaws.com/ask-samples-resources/images/airplane-1.jpg");
+        map.put("Boeing-767", "https://s3.amazonaws.com/ask-samples-resources/images/airplane-2.jpg");
+        map.put("Airbus-A320", "https://s3.amazonaws.com/ask-samples-resources/images/airplane-3.jpg");
+        map.put("Concorde", "https://s3.amazonaws.com/ask-samples-resources/images/airplane-4.jpg");
         return map;
     }
 
