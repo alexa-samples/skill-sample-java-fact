@@ -26,7 +26,6 @@ public class LaunchRequestHandler implements RequestHandler {
         String primaryText = "Welcome to Airplane Facts.";
         String secondaryText = "Would you like to hear an airplane fact?";
         String speechText = "Welcome to Airplane Facts. I can tell you facts about popular airplanes. Would you like to hear an airplane fact?";
-        //FIXME Replace below with the appropriate url for the background image
         String imageUrl = "https://s3.amazonaws.com/ask-samples-resources/images/background-image.jpg";
 
         Image image = getImage(imageUrl);

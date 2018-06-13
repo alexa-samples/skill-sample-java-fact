@@ -18,7 +18,6 @@ public class FactsUtil {
     }
 
     public static Map getImageMap() {
-        //FIXME Replace the map values below with the appropriate urls for the image
         Map<String, String> map = new HashMap<>();
         map.put("Airbus-A380", "https://s3.amazonaws.com/ask-samples-resources/images/airbus.jpg");
         map.put("Boeing-747", "https://s3.amazonaws.com/ask-samples-resources/images/airplane-1.jpg");
