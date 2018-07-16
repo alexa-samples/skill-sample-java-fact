@@ -47,7 +47,7 @@ public class FactIntentHandler implements RequestHandler {
         if(null!=input.getRequestEnvelope().getContext().getDisplay()) {
             return input.getResponseBuilder()
                     .withSpeech(speechText)
-                    .withSimpleCard(title, speechText)
+                    .withSimpleCard(title, primaryText)
                     .addRenderTemplateDirective(template)
                     .withReprompt(speechText)
                     .build();
@@ -55,7 +55,7 @@ public class FactIntentHandler implements RequestHandler {
             // Headless device
             return input.getResponseBuilder()
                     .withSpeech(speechText)
-                    .withSimpleCard(title, speechText)
+                    .withSimpleCard(title, primaryText)
                     .withReprompt(speechText)
                     .build();
         }
