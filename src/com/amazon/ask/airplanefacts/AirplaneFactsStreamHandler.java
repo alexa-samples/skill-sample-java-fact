@@ -16,8 +16,8 @@ public class AirplaneFactsStreamHandler extends SkillStreamHandler {
                         new LaunchRequestHandler(),
                         new SessionEndedRequestHandler(),
                         new FallBackIntentHandler())
-                // Add your skill id below
-                .withSkillId("")
+                // Add your skill id below and uncomment to enable skill ID verification
+                // .withSkillId("")
                 .build();
     }
 
