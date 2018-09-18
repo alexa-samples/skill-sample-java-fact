@@ -66,7 +66,6 @@ public class FactIntentHandler implements RequestHandler {
 		Date now = new Date();
 		return now.getTime();
 	}
-
 	
 	private List<Fact> getFacts(HandlerInput input) {
 		List<Fact> allFacts = FactsUtil.getFacts();
