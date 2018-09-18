@@ -1,5 +1,6 @@
 package com.amazon.ask.airplanefacts.handlers;
 
+import com.amazon.ask.airplanefacts.util.Fact;
 import com.amazon.ask.airplanefacts.util.FactsUtil;
 import com.amazon.ask.dispatcher.request.handler.HandlerInput;
 import com.amazon.ask.dispatcher.request.handler.RequestHandler;
@@ -11,6 +12,8 @@ import java.util.*;
 import static com.amazon.ask.request.Predicates.intentName;
 
 public class FactIntentHandler implements RequestHandler {
+	
+	private static final String FACTS_KEY = "used-facts";
 
     @Override
     public boolean canHandle(HandlerInput input) {
@@ -19,25 +22,15 @@ public class FactIntentHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-
-        Map<String, String> facts = FactsUtil.getFactMap();
-        Map<String, String> images = FactsUtil.getImageMap();
-        List<String> keys = FactsUtil.getKeys();
-
-        if (keys.size() <= 0) {
-            keys = FactsUtil.getKeys();
-        }
-
-        int index = new Random().nextInt(keys.size());
-        String key = keys.get(index);
-        keys.remove(index);
+    	
+    	Fact fact = getNextFact(input);
 
         String title = "Airplane Facts";
-        String primaryText = facts.get(key);
+        String primaryText = fact.getPrimaryText();
         //FIXME: If you would like to display additional text, please set the secondary text accordingly
         String secondaryText = "";
         String speechText = "<speak> " + primaryText + "<break time=\"1s\"/>  Would you like to hear another airplane fact?" + " </speak>";
-        String imageUrl = images.get(key);
+        String imageUrl = fact.getImage();
 
         Image image = getImage(imageUrl);
 
@@ -61,7 +54,38 @@ public class FactIntentHandler implements RequestHandler {
         }
     }
 
-    /**
+    private Fact getNextFact(HandlerInput input) {
+		List<Fact> facts = getFacts(input);
+		int index = new Random(seed()).nextInt(facts.size());
+		Fact nextFact = facts.remove(index);
+		getUsedFacts(input).add(nextFact.getId());
+		return nextFact;
+	}
+
+	private long seed() {
+		Date now = new Date();
+		return now.getTime();
+	}
+
+	
+	private List<Fact> getFacts(HandlerInput input) {
+		List<Fact> allFacts = FactsUtil.getFacts();
+		List<String> usedFacts = getUsedFacts(input);
+		if (usedFacts == null || usedFacts.size() == allFacts.size()) {
+			input.getAttributesManager().getSessionAttributes().put(FACTS_KEY, new ArrayList<>());
+		} else {
+			allFacts.removeIf(f -> usedFacts.contains(f.getId()));
+		}
+		
+		return allFacts;
+	}
+
+	@SuppressWarnings("unchecked")
+	private List<String> getUsedFacts(HandlerInput input) {
+		return (List<String>) input.getAttributesManager().getSessionAttributes().get(FACTS_KEY);
+	}
+
+	/**
      * Helper method to create a body template 3
      * @param title the title to be displayed on the template
      * @param primaryText the primary text to be displayed on the template

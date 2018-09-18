@@ -8,7 +8,7 @@ import com.amazon.ask.airplanefacts.handlers.*;
 public class AirplaneFactsStreamHandler extends SkillStreamHandler {
 
     private static Skill getSkill() {
-        return Skills.standard()
+        return Skills.standard() 
                 .addRequestHandlers(
                         new CancelandStopIntentHandler(),
                         new FactIntentHandler(),
