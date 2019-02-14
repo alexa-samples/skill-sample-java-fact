@@ -24,12 +24,6 @@
         }
       }
     },
-    "manifestVersion": "1.0",
-    "privacyAndCompliance": {
-      "allowsPurchases": false,
-      "containsAds": false,
-      "isChildDirected": false,
-      "usesPersonalInfo": false
-    }
+    "manifestVersion": "1.0"
   }
 }
