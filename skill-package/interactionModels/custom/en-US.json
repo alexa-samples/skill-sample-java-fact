@@ -1,8 +1,12 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "space facts",
+      "invocationName": "airplane facts",
       "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
         {
           "name": "AMAZON.CancelIntent",
           "samples": []
@@ -16,30 +20,79 @@
           "samples": []
         },
         {
-          "name": "AMAZON.FallbackIntent",
+          "name": "FactIntent",
+          "slots": [],
+          "samples": [
+            "tell me a fact",
+            "tell me recent airplane fact",
+            "tell me new airplane fact",
+            "airplane fact please",
+            "i want to hear airplane fact",
+            "i want to hear an airplane fact",
+            "give airplane fact",
+            "give me airplane fact",
+            "tell me airplane fact",
+            "read me an airplane fact",
+            "read airplane fact",
+            "tell me an airplane fact",
+            "airplane fact",
+            "fact"
+          ]
+        },
+        {
+          "name": "AMAZON.MoreIntent",
           "samples": []
         },
         {
-          "name": "GetNewFactIntent",
-          "samples": [
-            "a fact",
-            "a space fact",
-            "tell me a fact",
-            "tell me a space fact",
-            "give me a fact",
-            "give me a space fact",
-            "tell me trivia",
-            "tell me a space trivia",
-            "give me trivia",
-            "give me a space trivia",
-            "give me some information",
-            "give me some space information",
-            "tell me something",
-            "give me something"
-          ],
-          "slots": []
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateSettingsIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageUpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollRightIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollLeftIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollUpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.YesIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NoIntent",
+          "samples": []
         }
-      ]
+      ],
+      "types": []
     }
   }
 }

@@ -23,8 +23,8 @@
         },
         "skillInfrastructure": {
           "userConfig": {
-            "runtime": "python3.6",
-            "handler": "lambda_function.lambda_handler"
+            "runtime": "java8",
+            "handler": "com.amazon.ask.airplanefacts.AirplaneFactsStreamHandler"
           }
         }
       }
