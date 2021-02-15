@@ -1,0 +1,6 @@
+# java project
+target/
+.classpath
+.factorypath
+.project
+.settings/
